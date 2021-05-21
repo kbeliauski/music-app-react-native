@@ -19,6 +19,6 @@ http://127.0.0.1:8000/musicapp/
 
 Run React Native in music-rating-app-react-native folder with: 
 
-'''fish shell
+'fish shell
 npm start
-'''
+'
