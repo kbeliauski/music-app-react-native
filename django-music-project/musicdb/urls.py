@@ -21,15 +21,14 @@ try re_path(r'^current_user/$', views.current_user), if not working
 from django.contrib import admin
 from django.urls import path, re_path
 from musicapp import views
-from django.conf.urls import url
-from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', views.UserList.as_view()),
-    path('token-auth/', obtain_jwt_token),
-    path('token-auth/refresh', refresh_jwt_token),
+    path('token-auth/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('token-auth/refresh', TokenRefreshView.as_view(), name='token_refresh'),
     path('current_user/', views.current_user),
     re_path(r'^api/songs/$', views.songs_list),
     re_path(r'^api/songs/(?P<pk>\d+)/$', views.songs_detail),
