@@ -2,7 +2,7 @@ import axios from "axios";
 import * as SecureStore from 'expo-secure-store';
 import { Actions } from 'react-native-router-flux';
 
-const API_URL = "http://localhost:8000/";
+const API_URL = "http://127.0.0.1:8000";
 
 class AuthService {
   async login(username, password) {
